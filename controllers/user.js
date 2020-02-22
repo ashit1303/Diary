@@ -2,7 +2,7 @@
 
 
 //CHANGE LINK FOR DEFAULT LOCALHOST
-const link='sabutils.herokuapp.com'
+const link=''
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
