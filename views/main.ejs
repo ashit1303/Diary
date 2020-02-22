@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Daily Entry</title>
+    <link rel="icon" href="./img/nlogo.png">
+    <link rel="stylesheet" href="index.css">
+    <link type="text/css" rel="stylesheet" href="themes.css" media="all">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="./datedropper/datedropper.min.css" rel="stylesheet" type="text/css" />
+    <link href="./datedropper/my-style.css" rel="stylesheet" type="text/css" />
+    <script src="./datedropper/datedropper.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#doe').dateDropper();
+            $('#myModal').on('shown.bs.modal', function () {
+                $('#myInput').trigger('focus')
+            })
+        });
+        function openModal() {
+            $("#profile2").modal('show');
+        }
+
+    </script>
+</head>
+
+<body>
+    <!-- Navbar Starts-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand offset-lg-1" href="<%=link %>"><img src="./img/nlogo.png" alt="logo" class="logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Launch Modal -->
+
+            <ul class="navbar-nav mr-auto offset-lg-4">
+
+                <button type="button" class="btn btn-dark navbar-btn" data-toggle="modal" data-target="#gotodate">Go to
+                    date</button>
+                <button type="button" class="btn btn-dark navbar-btn" data-toggle="modal" data-target="#aboutUs">About
+                    Us</button>
+            </ul>
+
+
+            <!-- Profile pic and details -->
+            <div class="form-inline margin my-2 my-lg-0 center">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown ">
+                        <a class="nav-link " id="navbarDropdown" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <div id="profile1" onclick="openModal()">
+                                <img  src="<%=link %>/dp/<%=thisUser.dpdet.name%>" alt="" class="img-responsive profile">
+                            </div>
+                        </a>
+                        
+                    </li>
+                </ul>
+                <!-- Logout -->
+                <div class="margin-logout">
+                    <form action="/logout" method="GET">
+                        <button class="btn btn-outline-primary" type="submit"><i class="fa fa-sign-out">&nbsp;Logout</i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!--Navbar Ends -->
+
+    <!-- Modal About Us-->
+    <div class="modal fade" id="aboutUs" tabindex="-1" role="dialog" aria-labelledby="Modalabout" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="Modalabout">About Us</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>This is an online Diary</p>
+                    <p><strong>Developed By :-</strong></p>
+                    <strong><a class="list-group-item list-group-item-dark" href="mailto:adishjain589@gmail.com">Adish
+                            Jain</a></strong>
+                    <strong><a class="list-group-item list-group-item-dark" href="mailto:kmr.ashit@gmail.com">Ashit
+                            Kumar</a></strong>                
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Model About Us ends here -->
+
+
+    <!-- Modal Go to Date-->
+    <div class="modal fade" id="gotodate" tabindex="-1" role="dialog" aria-labelledby="Modalgotodate" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="Modalgotodate">Select a date</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="/gotodate" method="POST">
+                <div class="modal-body">
+                    
+                    <div class="form-group date">
+                        <input type="text" id="doe" class="form-control text-center" name="doe" data-large-default="true"
+                            data-large-mode="true" data-lock="to" data-format="Y-m-d" data-translate-mode="true"
+                            data-theme="my-style" />
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-dark" >GO</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Model gotodate ends here -->
+
+
+    <!-- Modal Profile-->
+    <div class="modal fade" id="profile2" tabindex="-1" role="dialog" aria-labelledby="modalProfile" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalProfile">My Profile</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row ml-2  ">
+                        <label for=""><strong>Name:</strong></label ><label class="cursive">&nbsp;<%= thisUser.name %></label>
+                    </div>
+                    <div class="row ml-2">
+                        <label for=""><strong>Email:</strong></label><label class="cursive">&nbsp;<%= thisUser.email %></label>
+                    </div>
+                    <div class="row ml-2">
+                        <label for=""><strong>Mobile No:</strong></label><label class="cursive">&nbsp;<%= thisUser.mobile %></label>
+                    </div>
+                    <div class="row ml-2">
+                        <label for=""><strong>Gender: </strong></label><label class="cursive">&nbsp;<%= thisUser.gender %></label>
+                    </div>
+                    <div class="row ml-2">
+                        <label for=""><strong>Joined Us On:</strong></label><label class="cursive">&nbsp;<%= thisUser.doj %></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Model Profile ends here -->
+
+
+
+    <script>
+        if (performance.navigation.type == 2) {
+            location.reload(true);
+        }
+        $(document).ready(function () {
+            setTimeout(function () {
+                $("#allAlert").css("display", "none");
+            }, 3000);
+        });
+    </script>
+    
+    <!-- Main Container -->
+    <div class="container-fluid">
+        <ul class="alert alert-dark text-center fadein" id="allAlert">
+            <% errors.forEach(function(errors){ %>
+            <%= errors.text %>
+            <strong class="cursive"><%= currentUser.name %></strong>
+            <% })%>
+        </ul>
+        <div class="row">
+            <div class="col-lg-7 col-md-6">
+                <div class="jumbotron">
+                    <form action="/save" enctype="multipart/form-data" method="POST" >
+                        <div class="form-group ">
+                            <input type="text"  class="form-control text-center topics cursive fontsizelarge " id="topic"
+                                name="topic" placeholder="Topic" required/>
+                        </div>
+                        <textarea class="form-control date textbox-lines cursive fontsizesmall" name="entry" id="entry" 
+                            rows="12" required></textarea>
+                        <div class="form-group">                            
+                            <button type="submit" class="btn btn-primary form-control"><i class="fa fa-paper-plane">&nbsp;Save</i></button>
+                        </div>
+                    
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-6">
+                <div class="jumbotron">
+                    <!--Carousal Starts-->
+                    <div id="carouselSave" class="carousel slide" data-ride="carousel">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" name="profilepic" id="inputGroupFile01" accept="image/*"
+                                aria-describedby="inputGroupFileAddon01" onchange="readURL(this);">
+                            <label class="custom-file-label" for="inputGroupFile01"><i class="fa fa-plus-circle">&nbsp;Add Image</i></label>
+                        </div>
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselSave" data-slide-to="0" class="active"></li>
+                        </ol>
+                        <div  class="carousel-inner" >
+                            <div class="carousel-item active" >
+                                <img class="d-block w-100" id="img0" name="imge0" src="" alt="">
+                            </div>
+                           
+                        </div>
+                    </form>
+                        
+                    </div>
+
+                    <!--Carousal ends -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Container ends -->
+</body>
+<script>
+    var source = [];
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+          $('#img0')
+            .attr('src', e.target.result)
+            ;
+        };
+
+        reader.readAsDataURL(input.files[0]);
+      }
+
+    }
+
+
+
+    
+</script>
+
+</html>

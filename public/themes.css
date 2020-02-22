@@ -1,0 +1,61 @@
+.themes-head{
+    font-size: 0.7em;
+}
+
+.button-container {
+    height: 300px;
+    width: 50px;
+    position: fixed;
+  }
+  
+
+.button-shape{
+
+    padding: 14px;
+    border-radius: 50%;
+    border: 1px solid black;
+    outline: none;   
+    margin: 3px;
+    cursor: pointer;;
+}
+ 
+#default-bg{ 
+    background-image: linear-gradient(rgb(7, 107, 146), rgb(53, 210, 238) ) ;
+}
+
+#green{
+  background-image: linear-gradient(  rgb(29, 139, 7),rgb(75, 238, 53)) ;
+  }
+#red{
+  background-image: linear-gradient(rgb(168, 44, 44), rgb(243, 60, 60) ) ;
+}
+#magenta{
+  background-image: linear-gradient(rgb(141, 12, 91), rgb(243, 60, 152) ) ;
+}
+#voilet{
+  background-image: linear-gradient(rgb(104, 12, 141), rgb(176, 60, 243) ) ;
+}
+
+#dark-blue{
+  background-image: linear-gradient(rgb(36, 15, 155), rgb(75, 91, 233) ) ;
+}
+
+#teal{
+  background-image: linear-gradient(rgb(7, 141, 108), rgb(75, 233, 180) ) ;
+}
+
+#yellow{
+  background-image: linear-gradient(rgb(141, 128, 12), rgb(209, 233, 75) ) ;
+}
+
+#orange {
+  background-image: linear-gradient(rgb(141, 85, 12), rgb(233, 151, 75) ) ;
+}
+
+#love{
+  background-image: linear-gradient(rgb(218, 26, 186), rgb(206, 118, 201) ) ;
+}
+
+#feary{
+  background-image: linear-gradient(rgb(182, 182, 182), rgb(255, 255, 255) ) ;
+}

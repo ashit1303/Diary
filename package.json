@@ -1,0 +1,36 @@
+{
+  "name": "sabutils",
+  "version": "1.0.5",
+  "description": "online diary",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ashit1303/Diary.git"
+  },
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [
+    "diary",
+    "online diary"
+  ],
+  "author": "Ashit Kumar, Adish Jain",
+  "license": "Refer to LICENCE",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.2",
+    "connect-mongo": "^3.0.0",
+    "ejs": "^2.5.7",
+    "express": "^4.16.1",
+    "express-fileupload": "^1.1.6",
+    "express-session": "^1.15.6",
+    "mongoose": "^5.9.1",
+    "nodemailer": "^4.6.8",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^4.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  }
+}
