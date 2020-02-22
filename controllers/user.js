@@ -1,6 +1,6 @@
 //Add EMAIL and PASS to send email from your Gmail account
-const sender=''//YOUR EMAIL//
-const sender_pass=''//YOUR PASS//
+const sender='sabutils@mail.com'//YOUR EMAIL//
+const sender_pass='sendmyemail'//YOUR PASS//
 
 //CHANGE LINK FOR DEFAULT LOCALHOST
 const link='localhost:5000'
@@ -21,7 +21,7 @@ var allimgs = path.join(__dirname, '..', 'public/allimg/');
 const app = express();
 app.use(upload());
 var transporter = nodemailer.createTransport({
-  service: 'gmail',
+  service: 'mail',
   auth: {
     user: sender,
     pass: sender_pass
