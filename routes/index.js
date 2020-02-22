@@ -1,7 +1,7 @@
 //FOR HOME PAGE 
 
 //CHANGE LINK FOR DEFAULT IP AND PORT
-const link='localhost:8080'
+const link='sabutils.herokuapp.com'
 const router = require('express').Router();
 const userController = require('../controllers/user');
 const { ensureGuest, ensureAuthenticated } = require('../libs/auth');

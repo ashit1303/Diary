@@ -1,9 +1,8 @@
 //Add EMAIL and PASS to send email from your Gmail account
-const sender='sabutils@mail.com'//YOUR EMAIL//
-const sender_pass='sendmyemail'//YOUR PASS//
+
 
 //CHANGE LINK FOR DEFAULT LOCALHOST
-const link='localhost:5000'
+const link='sabutils.herokuapp.com'
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
@@ -20,15 +19,17 @@ var uppath = path.join(__dirname, '..', 'public/dp/');
 var allimgs = path.join(__dirname, '..', 'public/allimg/');
 const app = express();
 app.use(upload());
+
+const sender='noreply.sabutils@gmail.com'//YOUR EMAIL//
+const sender_pass='ashitkumar07'//YOUR PASS//
+
 var transporter = nodemailer.createTransport({
-  service: 'mail',
+  service: 'gmail',
   auth: {
     user: sender,
     pass: sender_pass
   }
 });
-
-
 
 module.exports = {
 
