@@ -20,16 +20,15 @@ var allimgs = path.join(__dirname, '..', 'public/allimg/');
 const app = express();
 app.use(upload());
 
-const sender='noreply.sabutils@gmail.com'//YOUR EMAIL//
-const sender_pass='ashitkumar07'//YOUR PASS//
+const sendgridTransport = require('nodemailer-sendgrid-transport');
 
-var transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: sender,
-    pass: sender_pass
-  }
-});
+var transporter = nodemailer.createTransport(
+  sendgridTransport({
+    auth: {
+      api_key:
+        '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'
+    }
+  }));
 
 module.exports = {
 
@@ -190,7 +189,7 @@ module.exports = {
                         console.log(err);
                       } else {
                         var mailOptions = {
-                          from: '"Sabutils Diary" <SENDEREMAIL>',
+                          from: '"Sabutils Diary" <noreply@sabutils.com>',
                           to: req.body.email,
                           subject: 'SABUTILS email verification',
                           html: data
@@ -299,7 +298,7 @@ module.exports = {
               console.log(err);
             } else {
               var mailOptions = {
-                from: '"Sabutils Diary" <SENDEREMAIL>',
+                from: '"Sabutils Diary" <noreply.sabutils.com>',
                 to: req.body.email,
                 subject: 'SABUTILS email verification',
                 html: data
